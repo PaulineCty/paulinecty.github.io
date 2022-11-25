@@ -160,7 +160,8 @@ body {
 
 /* --MAIN-- */
 
-.main {
+#experience {
     height: 100vh;
     background-color: var(--dark-blue);
+    color: var(--white)
 }
