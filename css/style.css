@@ -5,6 +5,7 @@
     --white: #FFF;
     --black: #000000;
     --dark-blue: #1b263b;
+    --main-padding: 15px;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
     height: 100vh;
     color: var(--black);
     font-weight: 600;
-    padding: 30px;
+    padding: var(--main-padding);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,11 +38,15 @@ body {
 
 .header__nav {
     position: absolute;
-    top: 30px;
-    left: calc(50% - 418px / 2);
+    top: var(--main-padding);
+    left: var(--main-padding);
     display: flex;
-    justify-content: space-between;
-    width: 30%;
+    flex-direction: column;
+    width: 200px;
+}
+
+.header__nav-item-span {
+    margin-bottom: 10px;
 }
 
 .header__nav-item:hover {
@@ -54,9 +59,8 @@ body {
 
 .header__resume {
     position: absolute;
-    top: 0;
-    right:0;
-    margin: 30px 50px 0 0;
+    top: var(--main-padding);
+    right: calc(var(--main-padding) + 10px);
     text-align: center;
 }
 
@@ -83,7 +87,7 @@ body {
     flex-direction: column; 
     position: absolute;;
     top:0;
-    left:30px;
+    left: var(--main-padding);
     top: calc(50% - 354px / 2);
 }
 
@@ -107,21 +111,21 @@ body {
 }
 
 .header__content-title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 30px;
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 0.9rem;
 }
 
 .header__content-text, .header__content-text-group-item {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     letter-spacing: -0.1rem;
     font-weight: 500;
 }
 
 .header__content-subtitle {
     letter-spacing: 0rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
@@ -138,7 +142,7 @@ body {
 
 .header__email {
     position: absolute;
-    right:30px;
+    right: var(--main-padding);
     top: 65%;
 }
 
@@ -164,4 +168,108 @@ body {
     height: 100vh;
     background-color: var(--dark-blue);
     color: var(--white)
+}
+
+.section__title {
+    color: #FFF;
+}
+
+
+/* RESPONSIVE */
+
+/* Desktop & Tablets */
+@media (min-width: 768px) {
+
+    :root {
+        --main-padding: 30px;
+    }
+
+    /* --HEADER - NAV-- */
+
+    .header__nav {
+        left: calc(50% - 520px / 2);
+        flex-direction: row;
+        justify-content: space-between;
+        width: 520px;
+    }
+
+    .header__nav-item-span {
+        margin-bottom: none;
+    }
+
+    .header__nav-item:hover {
+        border-bottom: 3px double var(--black);
+        font-size: 1.05rem;
+        transition: all 0.2s linear;
+    }
+
+    /* --HEADER - CONTENT-- */
+
+    .header__content-title {
+        font-size: 3rem;
+    }
+
+    .header__content-text, .header__content-text-group-item {
+        font-size: 1.2rem;
+    }
+
+    .header__content-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .header__content-text, .header__content-text-group {
+        margin-bottom: 30px;
+    }
+    
+}
+
+
+/* Smaller devices like Galaxy Fold */
+@media (max-width: 330px) {
+
+    :root {
+        --main-padding: 10px;
+    }
+
+    .header__nav-item, .header__resume-title, .header__email-link, .header__socials-link {
+        font-size: 0.9rem;
+    }
+
+    .header__email-link:hover {
+        font-size: 0.92rem;
+    } 
+    
+    .header__socials-link:hover {
+        font-size: 0.92rem;
+    }
+
+    .header__nav-item:hover {
+        font-size: 0.92rem;
+    }
+
+    .header__resume-title {
+        margin-bottom: 5px;
+    }
+
+    .header__resume-link {
+        font-size: 0.8rem;;
+    }
+
+    .header__resume-link:hover {
+        font-size: 0.9rem;
+    } 
+
+    .header__content {
+        width: 60%;
+        line-height: 1.3;
+    }
+
+    .header__content-title {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }      
+
+    .header__content-text, .header__content-text-group {
+        margin-bottom: 10px;
+    }
 }
