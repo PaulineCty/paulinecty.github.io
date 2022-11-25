@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --white: #FFF;
+    --black: #000000;
+    --dark-blue: #1b263b;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    cursor: crosshair;
+}
+
+
+/* --HEADER-- */
+
+.header {
+    background: url(../images/background-10.jpg) center no-repeat;
+    background-size: cover;
+    opacity: 70%;
+    height: 100vh;
+    color: var(--black);
+    font-weight: 600;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Idea maybe for later */
+    /* border: 3px solid;
+    border-image-source: linear-gradient(90deg,#f7c9c9,#fa709a 70%);
+    border-image-slice: 1; */
+}
+
+/* --HEADER - NAV-- */
+
+.header__nav {
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 418px / 2);
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.header__nav-item:hover {
+    border-bottom: 3px double var(--black);
+    font-size: 1.05rem;
+    transition: all 0.2s linear;
+}
+
+/* --HEADER - RESUME-- */
+
+.header__resume {
+    position: fixed;
+    top: 0;
+    right:0;
+    margin: 30px 50px 0 0;
+    text-align: center;
+}
+
+.header__resume-title {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.header__resume-links {
+    color: var(--dark-blue);
+}
+
+.header__resume-link:hover {
+    border-bottom: 3px double var(--black);
+    color: var(--black);
+    font-size: 1.1rem;
+    transition: all 0.2s linear;
+}
+
+/* --HEADER - SOCIALS-- */
+
+.header__socials {
+    display: flex;  
+    flex-direction: column; 
+    position: fixed;
+    top:0;
+    left:30px;
+    top: calc(50% - 354px / 2);
+}
+
+.header__socials-link {
+    margin-bottom: 30px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: relative;
+}
+
+.header__socials-link:hover { /* see later why hover on socials links */
+    border-bottom: 3px double var(--black);
+    font-weight: 900;
+    text-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s linear;
+}
+
+/* --HEADER - CONTENT-- */
+
+.header__content {
+    width: 50%;
+    line-height: 1.5;
+}
+
+.header__content-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.header__content-text, .header__content-text-group-item {
+    font-size: 1.2rem;
+    letter-spacing: -0.1rem;
+    font-weight: 500;
+}
+
+.header__content-subtitle {
+    letter-spacing: 0rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.header__content-text, .header__content-text-group {
+    margin-bottom: 20px;
+}
+
+.header__content-oclock-link:hover {
+    border-bottom: 3px double var(--black);
+    transition: all 0.2s linear;
+}
+
+/* --MAIN-- */
+
+.main {
+    height: 100vh;
+    background-color: var(--dark-blue);
+}
