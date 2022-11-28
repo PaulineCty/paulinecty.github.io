@@ -279,9 +279,13 @@ body {
 }
 
 .experience__card-date {
-    font-size: 0.8em;
+    font-size: 0.8rem;
     margin-bottom: 15px;
     font-style: italic;
+}
+
+.experience__card-date-details {
+    font-size: 0.7rem;
 }
 
 .experience__card-content {
@@ -292,10 +296,43 @@ body {
 
 /* --MAIN - ABOUT SECTION-- */
 
+/* --MAIN - CONTACT SECTION-- */
+
+#contact {
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.contact__title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+    margin-bottom: 30px;
+}
+
+.contact__content {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.contact__content-links {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__content-link {
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.contact__content-link:hover {
+    font-style: italic;
+}
 
 
 
-/* RESPONSIVE */
+/* -----------------RESPONSIVE------------------ */
 
 /* Desktop & Tablets */
 @media (min-width: 860px) {
@@ -389,8 +426,12 @@ body {
     }
     
     .experience__card-date {
-        font-size: 1em;
+        font-size: 1rem;
         margin-bottom: 20px;
+    }
+
+    .experience__card-date-details {
+        font-size: 0.9rem;
     }
     
     .experience__card-content {
