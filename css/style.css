@@ -4,6 +4,7 @@
 :root {
     --white: #FFF;
     --black: #000000;
+    --blue: rgb(0,0,0, 0.7);
     --dark-blue: #1b263b;
     --main-padding: 15px;
 }
@@ -17,9 +18,6 @@ body {
 /* --HEADER-- */
 
 .header {
-    background: url(../images/background-10.jpg) center no-repeat;
-    background-size: cover;
-    opacity: 70%;
     height: 100vh;
     color: var(--black);
     font-weight: 600;
@@ -27,16 +25,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Idea maybe for later */
-    /* border: 3px solid;
-    border-image-source: linear-gradient(90deg,#f7c9c9,#fa709a 70%);
-    border-image-slice: 1; */
     position: relative;
+}
+
+.header::before {    
+    content: "";
+    background: url(../images/background-10.jpg) center no-repeat;
+    background-size: cover;
+    opacity: 70%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 }
 
 /* --HEADER - NAV-- */
 
 .header__nav {
+    color: var(--blue);
     position: absolute;
     top: var(--main-padding);
     left: var(--main-padding);
@@ -55,12 +62,14 @@ body {
 
 .header__nav-item:hover {
     border-bottom: 3px double var(--black);
-    font-size: 1.05rem;
+    color: var(--black);
+    font-style: italic;
 }
 
 /* --HEADER - RESUME-- */
 
 .header__resume {
+    color: var(--blue);
     position: absolute;
     top: var(--main-padding);
     right: calc(var(--main-padding) + 10px);
@@ -68,6 +77,7 @@ body {
 }
 
 .header__resume-title {
+    color: var(--black);
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
@@ -83,45 +93,24 @@ body {
 .header__resume-link:hover {
     border-bottom: 3px double var(--black);
     color: var(--black);
-    font-size: 1.1rem;
-}
-
-/* --HEADER - SOCIALS-- */
-
-.header__socials {
-    display: flex;  
-    flex-direction: column; 
-    position: absolute;;
-    top:0;
-    left: var(--main-padding);
-    top: calc(50% - 354px / 2);
-}
-
-.header__socials-link {
-    margin-bottom: 30px;
-    writing-mode: vertical-lr;
-    transition: all 0.3s linear;
-}
-
-.header__socials-link:hover {
-    font-weight: 900;
-    font-size: 1.05rem;
-    text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
 }
 
 /* --HEADER - CONTENT-- */
 
 .header__content {
-    width: 50%;
+    color: var(--blue);
+    width: 80%;
     line-height: 1.5;
     padding: 10px 0;
 }
-/* to delete */
+
 .header__content-title {
+    color: var(--black);
     font-size: 1.7rem;
     margin-bottom: 30px;
     font-family: 'Permanent Marker', cursive;
-    letter-spacing: 0.9rem;
+    letter-spacing: 0.5rem;
 }
 
 .header__content-text, .header__content-text-group-item {
@@ -145,34 +134,25 @@ body {
 }
 
 .header__content-oclock-link:hover {
-    border-bottom: 3px double var(--black);
+    border-bottom: 3px double var(--blue);
 }
 
-/* --HEADER - EMAIL-- */
+/* --HEADER - SOCIALS & EMAIL-- */
 
-.header__email {
-    position: absolute;
-    right: var(--main-padding);
-    top: 65%;
+.header__socials-email {
+    display: none;
 }
 
-.header__email-link {
+.header__link {
     writing-mode: vertical-lr;
-}
-
-.header__email-link {
+    margin-bottom: 30px;
     transition: all 0.3s linear;
 }
 
-.header__email-link:hover {
+.header__link:hover, .header__link:hover {
     font-weight: 900;
-    font-size: 1.05rem;
-    text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.header__email-separator {
-    background-color: red;
-    width: 30px;
+    font-style: italic;
+    color: var(--black);
 }
 
 /* --MAIN-- */
@@ -271,7 +251,7 @@ body {
 
 .experience__card {
     width: 100%;
-    height: 290px;
+    height: 320px;
     border: 1px solid var(--white);
     padding: 20px;
 }
@@ -279,6 +259,11 @@ body {
 .experience__card-title {
     margin-bottom: 5px;
     font-weight: 900;
+}
+
+.experience__card-title--detail { 
+    font-size: 0.98rem;
+    font-weight: 800;
 }
 
 .experience__card-subtitle {
@@ -294,7 +279,6 @@ body {
 }
 
 .experience__card-content {
-    /* text-align: justify; */
     font-size: 0.8rem;
     line-height: 1.4;
     margin-bottom: 3px;
@@ -327,18 +311,14 @@ body {
         margin-bottom: none;
     }
 
-    .header__nav-item {
-        transition: all 0.2s linear;
-    }
-
-    .header__nav-item:hover {
-        border-bottom: 3px double var(--black);
-        font-size: 1.05rem;
-    }
-
     /* --HEADER - CONTENT-- */
 
+    .header__content {
+        width: 60%;
+    }
+
     .header__content-title {
+        letter-spacing: 0.9rem;
         font-size: 3rem;
     }
 
@@ -354,6 +334,18 @@ body {
         margin-bottom: 30px;
     }
 
+    /* --HEADER - SOCIALS & EMAIL-- */
+
+    .header__socials-email {
+        display: inline-block;
+        color: var(--blue);
+        display: flex;  
+        flex-direction: column; 
+        position: absolute;
+        right: var(--main-padding);
+        top: calc(50% - 310px / 2);
+    }
+
     /* --MAIN - EXPERIENCES-- */
 
     #experience {
@@ -361,7 +353,7 @@ body {
     }
 
     .experience__cards { 
-        width: 50%;
+        width: 70%;
         column-gap:3%;  
     }
 
@@ -417,10 +409,6 @@ body {
         font-size: 0.92rem;
     }
 
-    .header__nav-item:hover {
-        font-size: 0.92rem;
-    }
-
     .header__resume-title {
         margin-bottom: 5px;
     }
@@ -428,10 +416,6 @@ body {
     .header__resume-link {
         font-size: 0.8rem;;
     }
-
-    .header__resume-link:hover {
-        font-size: 0.9rem;
-    } 
 
     .header__content {
         width: 60%;
@@ -458,7 +442,7 @@ body {
     }
 
     .experience__card  {
-        height:400px;
+        height:450px;
     }
 
 
