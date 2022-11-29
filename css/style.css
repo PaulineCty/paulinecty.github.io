@@ -19,16 +19,18 @@ body {
 
 .header {
     height: 100vh;
-    color: var(--black);
+    color: var(--blue);
     font-weight: 600;
     padding: var(--main-padding);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    background: rgb(252,100,168);
+    background: linear-gradient(180deg, rgba(252,100,168,0.8) 0%, rgba(252,109,77,1) 35%, rgba(27,38,59,1) 100%);
 }
 
-.header::before {    
+/* .header::before {    
     content: "";
     background: url(../images/background-10.jpg) center no-repeat;
     background-size: cover;
@@ -38,12 +40,11 @@ body {
     right: 0px;
     bottom: 0px;
     left: 0px;
-}
+} */
 
 /* --HEADER - NAV-- */
 
 .header__nav {
-    color: var(--blue);
     position: absolute;
     top: var(--main-padding);
     left: var(--main-padding);
@@ -70,7 +71,6 @@ body {
 /* --HEADER - RESUME-- */
 
 .header__resume {
-    color: var(--blue);
     position: absolute;
     top: var(--main-padding);
     right: calc(var(--main-padding) + 10px);
@@ -100,7 +100,6 @@ body {
 /* --HEADER - CONTENT-- */
 
 .header__content {
-    color: var(--blue);
     width: 80%;
     line-height: 1.5;
     padding: 10px 0;
@@ -158,19 +157,62 @@ body {
 
 /* --MAIN-- */
 
-.section__links {
-    margin-bottom: 10px;
-    display: flex;
-    position: absolute;
-    top: var(--main-padding);
-    left: var(--main-padding);
+.main {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: var(--main-padding);
 }
 
-.section__link--active {
+#experience, #about, #contact {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+}
+
+.pink {
+    color : #e03289;
+}
+
+.pinker {
+    color : #fa70b5;
+}
+
+.pinkerer {
+    color : #f19ec8;
+}
+
+.underlined {
+    border-bottom: 1px solid var(--white);
+}
+
+
+/* --MAIN - SECTION LINKS*/
+
+.section__links {
+    z-index : 2999;
+    margin-bottom: 10px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding : var(--main-padding);
+    /* Background color using glassmorphism */
+    background: rgba(27, 38, 59, 0.5);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Maybe for later w/ JS : 'disable' current section link */
+/* .section__link--active {
     opacity: 0.5;
     background: none;
     margin-right: 20px;
-}
+} */
 
 .section__link--hidden {
     display: none;
@@ -198,38 +240,6 @@ body {
 
 .section__link:hover::before {
     width: 100%;
-}
-
-.pink {
-    color : #e03289;
-}
-
-.pinker {
-    color : #fa70b5;
-}
-
-.pinkerer {
-    color : #f19ec8;
-}
-
-
-.underlined {
-    border-bottom: 1px solid var(--white);
-}
-
-.main {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    padding: var(--main-padding);
-}
-
-#experience, #about, #contact {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
 }
 
 /* --MAIN - EXPERIENCE SECTION-- */
