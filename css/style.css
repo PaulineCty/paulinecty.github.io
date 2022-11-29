@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 :root {
-    --white: #FFF;
+    --white: rgb(255, 255, 255);
     --black: #000000;
     --blue: rgb(0,0,0, 0.7);
     --dark-blue: #1b263b;
@@ -19,7 +19,7 @@ body {
 
 .header {
     height: 100vh;
-    color: var(--blue);
+    color: var(--white);
     font-weight: 600;
     padding: var(--main-padding);
     display: flex;
@@ -28,6 +28,7 @@ body {
     position: relative;
     background: rgb(252,100,168);
     background: linear-gradient(180deg, rgba(252,100,168,0.8) 0%, rgba(252,109,77,1) 35%, rgba(27,38,59,1) 100%);
+    text-shadow: 1px 1px 6px rgb(0, 0, 0, 0.5);
 }
 
 /* .header::before {    
@@ -59,12 +60,12 @@ body {
 
 .header__nav-item {
     transition: all 0.2s linear;
-    border-bottom: 1px solid var(--black);
+    border-bottom: 1px solid var(--white);
 }
 
 .header__nav-item:hover {
-    border-bottom: 3px double var(--black);
-    color: var(--black);
+    border-bottom: 3px double var(--white);
+    color: var(--white);
     font-style: italic;
 }
 
@@ -78,7 +79,7 @@ body {
 }
 
 .header__resume-title {
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
@@ -92,21 +93,21 @@ body {
 }
 
 .header__resume-link:hover {
-    border-bottom: 3px double var(--black);
-    color: var(--black);
+    border-bottom: 3px double var(--white);
+    color: var(--white);
     font-style: italic;
 }
 
 /* --HEADER - CONTENT-- */
 
 .header__content {
-    width: 80%;
+    width: 90%;
     line-height: 1.5;
     padding: 10px 0;
 }
 
 .header__content-title {
-    color: var(--black);
+    color: var(--white);
     font-size: 1.7rem;
     margin-bottom: 30px;
     font-family: 'Permanent Marker', cursive;
@@ -134,7 +135,7 @@ body {
 }
 
 .header__content-oclock-link:hover {
-    border-bottom: 3px double var(--blue);
+    border-bottom: 3px double var(--white);
 }
 
 /* --HEADER - SOCIALS & EMAIL-- */
@@ -152,7 +153,7 @@ body {
 .header__link:hover, .header__link:hover {
     font-weight: 900;
     font-style: italic;
-    color: var(--black);
+    color: var(--white);
 }
 
 /* --MAIN-- */
@@ -393,7 +394,7 @@ body {
 
     .header__socials-email {
         display: inline-block;
-        color: var(--blue);
+        color: var(--white);
         display: flex;  
         flex-direction: column; 
         position: absolute;
