@@ -20,10 +20,10 @@ body {
     height: 100vh;
     color: var(--light-yellow);
     font-weight: 600;
-    padding: 150px var(--main-padding) 30px;
+    padding: var(--main-padding);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
     background: linear-gradient(17deg, rgba(18,78,120,1) 35%, rgba(215,78,9,1) 85%);
@@ -103,6 +103,7 @@ body {
 }
 
 .header__content-title {
+    margin: 20px 0;
     font-size: 1.6rem;
     font-family: 'Permanent Marker', cursive;
     text-transform: uppercase;
@@ -165,7 +166,10 @@ body {
 /*  --HEADER - BUTTON-- */
 
 .header__button {
-    margin : 100px 0 30px 0;
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 41px / 2);
+
 }
 
 .btn-go-down-accueil {
