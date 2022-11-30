@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: 'Courier', monospace;
+    font-family: 'Courier', monospace; /*ou Roboto ?*/
     cursor: crosshair;
 }
 
@@ -64,10 +64,9 @@ body {
 /* --HEADER - RESUME-- */
 
 .header__resume {
-    display: none;
     position: absolute;
-    top: calc(var(--main-padding) - 10px);
-    right: calc(var(--main-padding) + 10px);
+    top: var(--main-padding);
+    right: var(--main-padding);
     text-align: center;
 }
 
@@ -167,7 +166,7 @@ body {
 
 .header__button {
     position: absolute;
-    bottom: 30px;
+    bottom: 60px;
     left: calc(50% - 41px / 2);
 
 }
@@ -388,12 +387,6 @@ body {
         display: flex;
     }
 
-    /* -- HEADER - RESUME -- */
-
-    .header__resume {
-        display: block;
-    }
-
     /* -- HEADER - CONTENT -- */
 
     .header__content {
@@ -422,6 +415,13 @@ body {
 
     .header__socials-email {
         display: flex;  
+    }
+
+    /* --HEADER - RESUME-- */
+
+    .header__resume {
+        top: calc(var(--main-padding) - 10px);
+        right: calc(var(--main-padding) + 10px);
     }
 
     /* --MAIN -- */
