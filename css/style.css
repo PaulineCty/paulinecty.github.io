@@ -86,21 +86,25 @@ body {
     text-align: center;
 }
 
-.header__resume-title {
+.header__resume-title, .contact__resume-title {
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     border: 1px solid var(--light-yellow);
     border-radius: 20px;
     padding: 10px;
 }
 
-.header__resume-link {
+.header__resume-link, .contact__resume-link {
     transition: all 0.2s linear;
     margin-right: 3px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
-.header__resume-link:hover {
+.header__resume-link {
+    display: none;
+}
+
+.header__resume-link:hover, .contact__resume-link:hover {
     color: var(--lighter-yellow);
     font-style: italic;
 }
@@ -367,17 +371,21 @@ body {
     align-items: flex-start;
     padding: 30px;
     color: var(--light-yellow);
+    position: relative;
 }
 
 .contact__title {
     font-family: 'Permanent Marker', cursive;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     margin-bottom: 30px;
+    background: -webkit-linear-gradient(17deg, rgb(49, 99, 134) 35%, rgba(215,78,9,1) 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .contact__content {
     font-size: 0.9rem;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .contact__content-link {
@@ -389,6 +397,14 @@ body {
 .contact__content-link:hover {
     font-style: italic;
 }
+
+.contact__resume {
+    position: absolute;
+    top: calc(var(--main-padding)*5);
+    right: var(--main-padding);
+    text-align: center;
+}
+
 
 
 
@@ -449,6 +465,14 @@ body {
         display: inline-block;
         top: calc(var(--main-padding) - 10px);
         right: calc(var(--main-padding) + 10px);
+    }
+
+    .header__resume-title, .contact__resume-title {
+        font-size: 1.1rem;
+    }
+    
+    .header__resume-link, .contact__resume-link {
+        font-size: 0.9rem;
     }
 
     /* --HEADER - BUTTON */
@@ -563,6 +587,12 @@ body {
 
     .experience__card  {
         height:400px;
+    }
+
+    /* --MAIN - CONTACT-- */
+
+    .contact__title {
+        font-size: 3.5rem;
     }
 }
 
