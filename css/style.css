@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --light-yellow: #e6e3dc;
+    --light-yellow: #e5ddcb;
     --lighter-yellow:#f1f0eb;
     --white: #fff;
     --black: #000000;
@@ -84,6 +84,7 @@ body {
     top: var(--main-padding);
     right: var(--main-padding);
     text-align: center;
+    padding: 0 15px 15px 15px;
 }
 
 .header__resume-title, .contact__resume-title {
@@ -100,7 +101,7 @@ body {
     font-size: 0.8rem;
 }
 
-.header__resume-link {
+.header__resume-links {
     display: none;
 }
 
@@ -125,7 +126,7 @@ body {
 .header__content-title {
     margin: 20px 0;
     font-size: 1.6rem;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker', monospace;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
     color: var(--lighter-yellow);
@@ -192,7 +193,6 @@ body {
     border-radius: 10px;
     background-clip: padding-box;
     background: url(../images/icon-btn-double-arrow-down.svg) no-repeat center center;
-    color: var(--light-yellow);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     -moz-animation: bounce 3s infinite;
@@ -299,7 +299,7 @@ body {
     font-style: italic;
     font-size: 1.1rem;
     opacity: 0.5;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker', monospace;
 }
 
 .experience__cards {
@@ -322,9 +322,12 @@ body {
 }
 
 .experience__card-header {
+    padding-bottom: 3px;
+}
+
+.experience__card-header {
     border-radius: 20px 20px 0 0;
-    background-color: rgba(11, 41, 62,0.5);
-    /* padding: 20px; */
+    background-color: rgba(11, 41, 62, 0.3);
 }
 
 .experience__card-title {
@@ -385,17 +388,21 @@ body {
 
 .contact__content {
     font-size: 0.9rem;
-    margin: 15px 0;
+    margin: 20px 20px;
+    font-family: 'Permanent Marker', monospace;
 }
 
 .contact__content-link {
     font-size: 0.75rem;
-    margin: 10px 5px 5px 0;
-    border-bottom: 1px solid var(--light-yellow);
+    margin: 10px 30px;
+    transition: all 0.3s linear;
 }
 
 .contact__content-link:hover {
     font-style: italic;
+    border-bottom: 1px solid var(--light-yellow);
+    position: relative;
+    left: 10px;
 }
 
 .contact__resume {
@@ -405,6 +412,25 @@ body {
     text-align: center;
 }
 
+.contact__resume-links {
+    display: none;
+}
+
+.contact__icon {
+    position : absolute;
+    left: 120px;
+    bottom: 20px;
+}
+
+.icon-mouse {
+    display: block;
+    position: relative;
+    z-index: 500;
+    width: 41px;
+    height: 41px;
+    background-clip: padding-box;
+    background: url(../images/mouse-icon.svg) no-repeat center center;
+}
 
 
 
@@ -514,6 +540,10 @@ body {
         padding: 15px 30px;
     }
 
+    .experience__card-header {
+        padding-bottom: 5px;
+    }
+
     .experience__card-title {
         font-size: 1.3rem;
         margin-bottom: 8px;
@@ -542,6 +572,28 @@ body {
         font-size: 0.9rem;
         line-height: 1.4;
         margin-bottom: 3px;
+    }
+
+    /* --MAIN - CONTACT-- */
+
+    #contact {
+        margin-left: 30px;
+    }
+
+    .contact__title {
+        font-size: 10rem;
+    }
+    
+    .contact__content {
+        font-size: 1.3rem;
+    }
+
+    .contact__content-link {
+        font-size: 1rem;
+    }
+    
+    .contact__resume {
+        top: calc(var(--main-padding)*3);
     }
     
 }

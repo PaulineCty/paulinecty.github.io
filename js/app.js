@@ -1,15 +1,30 @@
-const headerResumeTitle = document.querySelector('.header__resume-title');
-const headerResumeLinks = document.querySelectorAll('.header__resume-link');
-console.log(headerResumeLinks);
+const headerResumeDiv = document.querySelector('.header__resume');
+const headerResumeLinks = document.querySelector('.header__resume-links');
 
-function handleMouseOver(event) {
-    for(let i=0 ; i<headerResumeLinks.length ; i++){
-        headerResumeLinks[i].style.display = 'inline-block';
-    }
+const contactResumeDiv = document.querySelector('.contact__resume');
+const contactResumeLinks = document.querySelector('.contact__resume-links');
+
+
+function handleMouseOverHeader(event) {
+    headerResumeLinks.style.display = 'inline-block';
 }
 
+function handleMouseOutHeader(event) {
+    headerResumeLinks.style.display = 'none';
+}
 
-headerResumeTitle.addEventListener('mouseover', handleMouseOver);
+function handleMouseOverContact(event) {
+    contactResumeLinks.style.display = 'inline-block';
+}
+
+function handleMouseOutContact(event) {
+    contactResumeLinks.style.display = 'none';
+}
+
+headerResumeDiv.addEventListener('mouseover', handleMouseOverHeader);
+headerResumeDiv.addEventListener('mouseout', handleMouseOutHeader);
+contactResumeDiv.addEventListener('mouseover', handleMouseOverContact);
+contactResumeDiv.addEventListener('mouseout', handleMouseOutContact);
 
 //when finish hovering display:none;
 //faire truc menu qui passe en gris l'actuel sections
