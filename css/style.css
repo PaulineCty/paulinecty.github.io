@@ -78,7 +78,7 @@ body {
 
 /* --HEADER - RESUME-- */
 
-.header__resume {
+.header__resume-div {
     display: none;
     position: absolute;
     top: var(--main-padding);
@@ -101,7 +101,7 @@ body {
     font-size: 0.8rem;
 }
 
-.header__resume-links {
+.resume-links {
     display: none;
 }
 
@@ -405,16 +405,14 @@ body {
     left: 10px;
 }
 
-.contact__resume {
+.contact__resume-div {
     position: absolute;
     top: calc(var(--main-padding)*5);
     right: var(--main-padding);
     text-align: center;
 }
 
-.contact__resume-links {
-    display: none;
-}
+
 
 .contact__icon {
     position : absolute;
@@ -487,7 +485,7 @@ body {
 
     /* --HEADER - RESUME-- */
 
-    .header__resume {
+    .header__resume-div {
         display: inline-block;
         top: calc(var(--main-padding) - 10px);
         right: calc(var(--main-padding) + 10px);
@@ -592,7 +590,7 @@ body {
         font-size: 1rem;
     }
     
-    .contact__resume {
+    .contact__resume-div {
         top: calc(var(--main-padding)*3);
     }
     

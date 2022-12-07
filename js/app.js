@@ -1,61 +1,66 @@
 //RESUME LINKS
+const app = {
+    headerResumeDiv: document.querySelector('.header__resume'),
+    contactResumeDiv: document.querySelector('.contact__resume'),
+    navItem: document.querySelector('.header__nav'),
+    navListItems: ['homeNav','experienceNav','aboutNav','contactNav'],
 
-const headerResumeDiv = document.querySelector('.header__resume');
-const headerResumeLinks = document.querySelector('.header__resume-links');
+    init() {
+        app.addEvents();
+    },
 
-const contactResumeDiv = document.querySelector('.contact__resume');
-const contactResumeLinks = document.querySelector('.contact__resume-links');
+    addEvents() {
+        //Hide or show header resume links
+        app.headerResumeDiv.addEventListener('mouseover', app.showResumeLinks);
+        app.headerResumeDiv.addEventListener('mouseout', app.hideResumeLinks);
 
+        //Hide or show contact resume links
+        app.contactResumeDiv.addEventListener('mouseover', app.showResumeLinks);
+        app.contactResumeDiv.addEventListener('mouseout', app.hideResumeLinks);
 
-function handleMouseOverHeader(event) {
-    headerResumeLinks.style.display = 'inline-block';
-}
+        //Color effect on header nav links
+        app.navItem.addEventListener('mouseover', app.navStyleOnOver);
+        app.navItem.addEventListener('mouseout', app.navStyleOnOut);
 
-function handleMouseOutHeader(event) {
-    headerResumeLinks.style.display = 'none';
-}
+    },
+    
+    showResumeLinks(event) {
+        app.headerOrContactResume(event.target).classList.remove('resume-links');
+    },
 
-function handleMouseOverContact(event) {
-    contactResumeLinks.style.display = 'inline-block';
-}
+    hideResumeLinks(event) {
+        app.headerOrContactResume(event.target).classList.add('resume-links');
+    },
 
-function handleMouseOutContact(event) {
-    contactResumeLinks.style.display = 'none';
-}
+    headerOrContactResume(target) {
+        if(target.classList.contains('header__resume')){
+            return document.querySelector('#header__resume');
+        } else {
+            return document.querySelector('#contact__resume');
+        }
+    },
 
-headerResumeDiv.addEventListener('mouseover', handleMouseOverHeader);
-headerResumeDiv.addEventListener('mouseout', handleMouseOutHeader);
-contactResumeDiv.addEventListener('mouseover', handleMouseOverContact);
-contactResumeDiv.addEventListener('mouseout', handleMouseOutContact);
+    navStyleOnOver(event) {
+        let navListItems = [...app.navListItems];
+        const target = event.target.id;
+        const targetIndex = navListItems.indexOf(target);
+        navListItems.splice(targetIndex,1);
+        app.applyStyleToNav(navListItems,'rgba(229, 221, 203,0.5)');
+    },
+    
+    navStyleOnOut() {
+        app.applyStyleToNav(app.navListItems,'rgba(229, 221, 203)');
+    },
 
+    applyStyleToNav(array,color) {
+        for(const item of array){
+            const id = '#' + item;
+            document.querySelector(id).style.color = color;
+        }
+    },
+};
 
-//NAV LINKS 
-
-const navItems = document.querySelectorAll('.header__nav-item');
-
-function handleMouseOverNav(event) {
-    let navList = ['homeNav','experienceNav','aboutNav','contactNav']; //not nice, would be great to get them differently
-    const target = event.target.id;
-    const targetIndex = navList.indexOf(target);
-    navList.splice(targetIndex,1);
-    for(let i=0 ; i<navList.length ; i++){
-        navList[i] = '#' + navList[i];
-        document.querySelector(navList[i]).style.color = 'rgba(229, 221, 203,0.5)';
-    }
-}
-
-function handleMouseOutNav(event) {
-    let navList = ['homeNav','experienceNav','aboutNav','contactNav']; //not nice, would be great to get them differently
-    for(let i=0 ; i<navList.length ; i++){
-        navList[i] = '#' + navList[i];
-        document.querySelector(navList[i]).style.color = 'rgba(229, 221, 203)';
-    }
-}
-
-for(let i=0 ; i<navItems.length ; i++) {
-    navItems[i].addEventListener('mouseover', handleMouseOverNav);
-    navItems[i].addEventListener('mouseout', handleMouseOutNav);
-}
+app.init();
 
 
 //faire truc menu qui passe en gris l'actuel sections
