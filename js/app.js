@@ -7,6 +7,7 @@ const app = {
 
     init() {
         app.addEvents();
+        app.timeOutTypewriterEffect1();
     },
 
     addEvents() {
@@ -58,10 +59,58 @@ const app = {
             document.querySelector(id).style.color = color;
         }
     },
-};
+
+    timeOutTypewriterEffect1() {
+        const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
+
+        //Elem 1
+        app.stylesTypewriterEffectOff(typewriterEffectElements[1])
+        app.stylesTypewriterEffectOff(typewriterEffectElements[2])
+        app.stylesTypewriterEffectOn(typewriterEffectElements[0], 2);
+        setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[0])}, 300);
+        
+        //app.timeOutTypewriterEffect2(app.timeOutTypewriterEffect3);
+    },
+
+    // timeOutTypewriterEffect2(callbackFn = () => {app.timeOutTypewriterEffect3}) {
+    //     const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
+
+    //     //Elem 2
+    //     app.stylesTypewriterEffectOn(typewriterEffectElements[1], 3.2);
+    //     setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[1])}, 4200);
+
+    //     callbackFn();
+    // },
+
+    // timeOutTypewriterEffect3() {
+    //     const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
+
+    //     //Elem 2
+    //     app.stylesTypewriterEffectOn(typewriterEffectElements[2], 3.5);
+    //     setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[2])}, 4500);
+    // },
+
+
+    
+    stylesTypewriterEffectOn(elem, duration) {
+        elem.style.animation = `typing ${duration}s steps(30, end), blink-caret .5s step-end infinite`;
+        elem.style.borderRight = '.15em solid orange';
+        elem.style.display = 'block';
+    },
+
+    stylesTypewriterEffectOff(elem) {
+        elem.style.animation = 'none';
+        elem.style.borderRight = 'none';
+    },
+
+    
+
+
+}
 
 app.init();
 
+// .section__link--active
 
 //faire truc menu qui passe en gris l'actuel sections
 //truc scroll pour s'amuser
