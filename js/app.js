@@ -4,10 +4,12 @@ const app = {
     contactResumeDiv: document.querySelector('.contact__resume'),
     navItem: document.querySelector('.header__nav'),
     navListItems: ['homeNav','experienceNav','aboutNav','contactNav'],
+    typewriterEffectElements: document.querySelectorAll('.typewriter-effect'),
 
     init() {
         app.addEvents();
-        app.timeOutTypewriterEffect1();
+        app.timeOutTypewriterEffect();
+    
     },
 
     addEvents() {
@@ -22,7 +24,6 @@ const app = {
         //Color effect on header nav links
         app.navItem.addEventListener('mouseover', app.navStyleOnOver);
         app.navItem.addEventListener('mouseout', app.navStyleOnOut);
-
     },
     
     showResumeLinks(event) {
@@ -60,37 +61,21 @@ const app = {
         }
     },
 
-    timeOutTypewriterEffect1() {
-        const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
-
+    timeOutTypewriterEffect() {
         //Elem 1
-        app.stylesTypewriterEffectOff(typewriterEffectElements[1])
-        app.stylesTypewriterEffectOff(typewriterEffectElements[2])
-        app.stylesTypewriterEffectOn(typewriterEffectElements[0], 2);
-        setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[0])}, 300);
-        
-        //app.timeOutTypewriterEffect2(app.timeOutTypewriterEffect3);
+        app.stylesTypewriterEffectOn(app.typewriterEffectElements[0], 2);
+        setTimeout(function() {app.stylesTypewriterEffectOff(app.typewriterEffectElements[0])}, 3000);
+
+        setTimeout(function(){app.sectionAboutEffects()}, 3000);
     },
 
-    // timeOutTypewriterEffect2(callbackFn = () => {app.timeOutTypewriterEffect3}) {
-    //     const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
+    sectionAboutEffects() {
+        app.sectionSubtitleEffectOn(document.querySelector('.section__subtitle--occupation'));
 
-    //     //Elem 2
-    //     app.stylesTypewriterEffectOn(typewriterEffectElements[1], 3.2);
-    //     setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[1])}, 4200);
-
-    //     callbackFn();
-    // },
-
-    // timeOutTypewriterEffect3() {
-    //     const typewriterEffectElements = document.querySelectorAll('.typewriter-effect');
-
-    //     //Elem 2
-    //     app.stylesTypewriterEffectOn(typewriterEffectElements[2], 3.5);
-    //     setTimeout(function() {app.stylesTypewriterEffectOff(typewriterEffectElements[2])}, 4500);
-    // },
-
-
+        document.querySelector('.section__subtitle--occupation').addEventListener('animationend', function() {
+            app.sectionSubtitleEffectOn(document.querySelector('.section__subtitle--details'));
+        });
+    },
     
     stylesTypewriterEffectOn(elem, duration) {
         elem.style.animation = `typing ${duration}s steps(30, end), blink-caret .5s step-end infinite`;
@@ -98,14 +83,21 @@ const app = {
         elem.style.display = 'block';
     },
 
+    sectionSubtitleEffectOn(elem) {
+        elem.style.animation = 'fade-in 2s ease-in forwards';
+    },
+
     stylesTypewriterEffectOff(elem) {
         elem.style.animation = 'none';
         elem.style.borderRight = 'none';
     },
 
+    // $(window).on('scroll', function() {
+    //     if($(window).scrollTop() >= $('.div').offset().top + $('.div').outerHeight() - window.innerHeight) {
+    //       alert('Bottom');
+    //     }
+    //   });
     
-
-
 }
 
 app.init();

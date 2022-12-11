@@ -293,7 +293,15 @@ body {
     flex-wrap: wrap; 
     row-gap: 10px; 
     margin-bottom: 30px;
+
+    /* transform: translateX(-200px);
+    opacity: 0; */
 }
+
+/* .experience__cards.active{
+    transform: translateX(0);
+    opacity: 1;
+} */
 
 .experience__card {
     width: 100%;
@@ -355,6 +363,8 @@ body {
 
 .section__subtitle {
     font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: left;
 }
 
 .typewriter-effect {
@@ -362,16 +372,16 @@ body {
     /* border-right: .15em solid orange; The typwriter cursor */
     white-space: nowrap;
     margin: 0 auto;
-    letter-spacing: .15em;
+    /* letter-spacing: .15em; */
    
 }
 
-.typewriter-effect--occupation {
-    display: none;
+.section__subtitle--occupation {
+    opacity: 0;
 }
 
-.typewriter-effect--details {
-    display: none;
+.section__subtitle--details {
+    opacity: 0;
 } 
 
 /* --MAIN - CONTACT SECTION-- */
@@ -470,4 +480,9 @@ body {
     from, to { border-color: transparent }
     50% { border-color: orange }
   }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
