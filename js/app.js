@@ -4,12 +4,11 @@ const app = {
     contactResumeDiv: document.querySelector('.contact__resume'),
     navItem: document.querySelector('.header__nav'),
     navListItems: ['homeNav','experienceNav','aboutNav','contactNav'],
-    typewriterEffectElements: document.querySelectorAll('.typewriter-effect'),
 
     init() {
         app.addEvents();
-        app.timeOutTypewriterEffect();
-    
+        app.sectionScrollAnimation();
+        app.aboutSectionTypewriterEffect();
     },
 
     addEvents() {
@@ -61,48 +60,37 @@ const app = {
         }
     },
 
-    timeOutTypewriterEffect() {
-        //Elem 1
-        app.stylesTypewriterEffectOn(app.typewriterEffectElements[0], 2);
-        setTimeout(function() {app.stylesTypewriterEffectOff(app.typewriterEffectElements[0])}, 3000);
-
-        setTimeout(function(){app.sectionAboutEffects()}, 3000);
+    sectionScrollAnimation() {
+        let scrollAnimationHidden = document.querySelectorAll('.scrollAnimation--hidden');
+        scrollAnimationHidden.forEach((el) => app.fadeInObserver.observe(el));
     },
 
-    sectionAboutEffects() {
-        app.sectionSubtitleEffectOn(document.querySelector('.section__subtitle--occupation'));
+    aboutSectionTypewriterEffect() {
+        let typewriterEffectElement = document.querySelector('.typewriter-effect');
+        app.typewriterObserver.observe(typewriterEffectElement);
+    },
 
-        document.querySelector('.section__subtitle--occupation').addEventListener('animationend', function() {
-            app.sectionSubtitleEffectOn(document.querySelector('.section__subtitle--details'));
+    fadeInObserver: new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scrollAnimation--show');
+            } else {
+                entry.target.classList.remove('scrollAnimation--show');
+            }
         });
-    },
-    
-    stylesTypewriterEffectOn(elem, duration) {
-        elem.style.animation = `typing ${duration}s steps(30, end), blink-caret .5s step-end infinite`;
-        elem.style.borderRight = '.15em solid orange';
-        elem.style.display = 'block';
-    },
+    }),
 
-    sectionSubtitleEffectOn(elem) {
-        elem.style.animation = 'fade-in 2s ease-in forwards';
-    },
-
-    stylesTypewriterEffectOff(elem) {
-        elem.style.animation = 'none';
-        elem.style.borderRight = 'none';
-    },
-
-    // $(window).on('scroll', function() {
-    //     if($(window).scrollTop() >= $('.div').offset().top + $('.div').outerHeight() - window.innerHeight) {
-    //       alert('Bottom');
-    //     }
-    //   });
+    typewriterObserver: new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('typewriter-effect--on');
+                setTimeout(function(){ entry.target.classList.remove('typewriter-effect--on') }, 4500);
+            }
+        });
+    }),
     
 }
 
 app.init();
 
 // .section__link--active
-
-//faire truc menu qui passe en gris l'actuel sections
-//truc scroll pour s'amuser
